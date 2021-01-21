@@ -4,11 +4,13 @@ int getLength(int array[]);
 
 int main() {
 
-	// 'limit' = 3 += 1; to accomodate end flag 
-	int largest = 0, i;
+	// Declare 
+	int largest, i;
 	int numbers[4];
 
-	// Insert numbers, then append '000' for end flag
+  // Initalise
+	/// Insert numbers, then append '000' for end flag
+  largest = 0;
 	numbers[0] = 2;
 	numbers[1] = 10;
 	numbers[2] = 5;
