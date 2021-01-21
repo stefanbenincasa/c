@@ -4,18 +4,23 @@ int getLength(int array[]);
 
 int main() {
 
-	int limit = 0, i;
-	int numbers[limit];
+	// 'limit' = 3 += 1; to accomodate end flag 
+	int largest = 0, i;
+	int numbers[4];
 
-	for(i = 0; i <= limit; i++) {
-		if(i == limit) numbers[i] = 000; 
-		else numbers[i] = i+1;
-	}
+	// Insert numbers, then append '000' for end flag
+	numbers[0] = 2;
+	numbers[1] = 10;
+	numbers[2] = 5;
+	numbers[3] = 000;
 
-	// printf("\n%d", numbers);
+	// Find the largest of the three numbers in the array
 	for(i = 0; i < getLength(numbers); i++) {
-		printf("\n%s\n", "<<Test>>");	
+		if(numbers[i] > largest) largest = numbers[i]; 
 	}
+
+	// Print largest number in array
+	printf("\n%s%d\n\n", "Largest Number: ", largest);
 
 	return 0;
 
