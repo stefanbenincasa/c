@@ -7,10 +7,12 @@ int main() {
 	printf("\n%s", "Please input a number to get its factorial: ");
 	scanf("%d", &n);
 
-	for(int index = n; index != 1; index--) {
-		factorial *= index * index-1;
-		printf("\nYour factorial is %d.\n\n", factorial);
+	factorial = 1;
+	for(int index = 1; index <= n; index++) {
+		factorial = factorial * index;
 	}
+
+	printf("\n%d\n", factorial);
 
 	return 0;
 
