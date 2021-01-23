@@ -3,18 +3,20 @@
 
 int main() {
 
-	int rows, spaces;
+	int rows, columns;
 
-	printf("\n%s", "Please enter the number of desired rows: ");
-	scanf("%d", &rows);
+	printf("\n%s", "Please enter the number of desired rows: "); scanf("%d", &rows);
+	columns = rows % 2 == 0 ? rows + 1 : rows;
 
-	spaces = rows - 1; 
-	for (int y = 1; y <= rows; y++) {
-		// The printing of BOTH spaces & rows 
+	int row, character, stars, spaces;
+	for (row = 1; row <= rows; row++) {
+		spaces = rows - row; 
+		stars = rows - spaces; 
+		for (character = 1; character <= spaces; character++) printf(" ");
+		for (character = 1; character <= stars; character++) printf("* ");
+		printf("\n");
 	}
 
 	return 0;
 
 }
-
-// for (int x = 1; x <= rows * 2 + 1; x++) printf("* ");
