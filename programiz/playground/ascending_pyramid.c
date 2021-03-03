@@ -1,31 +1,30 @@
 #include <stdio.h>
 
+void display(int n); 
+
+static int LIMIT = 10;
+
 int main() {
-	// Declare //
-	int rows = 10, points[rows], position[2] = {0, 0};
+	int rows[LIMIT], n;
 
-	// Get data points //
-	for(int i = 0; i < rows; i++) {
-		points[i] = i;
-		// printf("\n%d", points[i]); 
-	}
+	printf("\n%s", "Please input total number of desired rows >>> ");
+	scanf("%d", &n);
 	
-	// Output points matrix //
-		// Reference position in relation to data point
-	for(int y = 0; y < rows; y++) {
-		for(int x = 0; x < rows; x++) {
-			position[0] = x; position[1] = y;
-			printf("%d %d\n", position[0], position[1]);
-
-		}
-	}
+	display(n); 
 }
 
-/* 
+void display(int n) {
+	int spaces = n-1; 
 
-	Notes
+	for(int y = 0; y < n; ++y) {
+		for(int x = 0; x <= n; ++x) {
+			if(x == n) printf("\n");
+			else if(x < spaces) 
+				printf(" ");
+			else 
+				printf("*");
+		}
+		spaces--;
+	}
 
-	- As the program is incrementing along Y row, it should have an awareness of X Column
-	- Should index x align with total needed for X column, print *
-
-*/
+}
