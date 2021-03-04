@@ -2,12 +2,19 @@
 
 int isPrime(int number); 
 int isArmstrong(int number); 
+int extractDigits(int number);
 
 int main(void) {
-	int number;
+	int number, validNumber = 0;
 
-	printf("\n%s", "Input number >>> ");
-	scanf("%d", &number);
+	while(!validNumber) {
+		printf("\n%s", "Input a natural number >>> ");
+		scanf("%d", &number);
+		if(number > 0 && number < 10000)  
+			validNumber = 1;	
+		else 
+			printf("\n%s", "Number must be between 0 and 10000");
+	}
 
 	if(isPrime(number)) printf("\n%s", "Number is a Prime Number.");
 	if(isArmstrong(number)) printf("\n%s", "Number is an Armstrong Number.");
@@ -27,6 +34,14 @@ int isPrime(int number) {
 }
 
 int isArmstrong(int number) {
-	// Code needed here	
+	int digits[10000]; 
+
+	if(true) {
+			
+	}
+
+	// digits[0] = 1; digits[1] = 1; digits[2] = 2; digits[3] = '\0';
+	// for(int i = 0; digits[i] != '\0'; i++) { printf(" %d", digits[i]);	}
+
 	return 0;
 }
