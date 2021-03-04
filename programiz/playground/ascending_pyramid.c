@@ -28,3 +28,12 @@ void display(int n) {
 	}
 
 }
+
+/*
+
+	NOTES
+	- Algorithm combining descending spaces relative to row, and
+	  star output of " *" , results in "off-by-one" stars across rows
+  - Yields an equalateral traingle rather than a right-angle triangle
+
+*/
