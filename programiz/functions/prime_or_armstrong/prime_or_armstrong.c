@@ -3,6 +3,7 @@
 int isPrime(int number); 
 int isArmstrong(int number); 
 int extractDigits(int number);
+int push(int TOP, int digits[], int digit);
 
 int main(void) {
 	int number, validNumber = 0;
@@ -10,10 +11,10 @@ int main(void) {
 	while(!validNumber) {
 		printf("\n%s", "Input a natural number >>> ");
 		scanf("%d", &number);
-		if(number > 0 && number < 10000)  
+		if(number > 0 && number <= 10000)  
 			validNumber = 1;	
 		else 
-			printf("\n%s", "Number must be between 0 and 10000");
+			printf("\n%s", "Number must be from 1 to 10000 inclusive.");
 	}
 
 	if(isPrime(number)) printf("\n%s", "Number is a Prime Number.");
@@ -34,14 +35,21 @@ int isPrime(int number) {
 }
 
 int isArmstrong(int number) {
-	int digits[10000]; 
+	int digits[10000], TOP, quotient; 
 
-	if(true) {
-			
+  TOP = -1;
+	if((quotient = number / 10000) >= 1) {
+    push(TOP, digits, quotient); TOP++; 
+    printf("\n%d", quotient); 
 	}
 
-	// digits[0] = 1; digits[1] = 1; digits[2] = 2; digits[3] = '\0';
-	// for(int i = 0; digits[i] != '\0'; i++) { printf(" %d", digits[i]);	}
-
 	return 0;
+}
+
+// Helpers //
+int push(int TOP, int digits[], int digit) {
+  for(int i = 0; digits[i] <= TOP; i++) {
+    // Push to array...
+  }
+  return 0;
 }
