@@ -3,17 +3,6 @@
 #include <string.h>
 #include <time.h>
 
-// DONE 
-// Read in random word from file & and store in array of characters
-// Omitt characters from randomly generated word
-// BUG: Game logic 
-// Set chances
-// BUG: Strange output
-
-// TO_DO
-// Refine user input; a-z only
-// Define Hangman portions to be printed it screen
-
 #define MAX_WORD_SIZE 30 
 #define MAX_LINE_NUMBER 1000
 
@@ -109,9 +98,9 @@ int main() {
 
   trim_newline(word);
   
-  char guess;
+  char guess, next_match;
   char omitted_word[strlen(word) + 1];
-  int lives = 3, matched_index = -1;
+  int lives = 3, matched_index = -1, input_count = 0;
 
   omitt_letters(omitted_word, word);
   printf("\nWelcome to Hangman!\n\n");
@@ -119,8 +108,12 @@ int main() {
 
   while(lives > 0) {
     printf("\nThe Substituted Omitted Word is: %s\n", omitted_word);
-    printf("Guess Missing Letter in Word: ");
-    scanf(" %c", &guess);
+
+    do {
+      printf("Guess Missing Letter in Word: ");
+      input_count = scanf("%c%c", &guess, &next_match);
+      fflush(stdin);
+    } while(input_count == 0 || next_match != '\n');
 
     matched_index = compare_guess_word(guess, word, omitted_word);
     
